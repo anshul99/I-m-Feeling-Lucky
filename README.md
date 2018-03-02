@@ -4,7 +4,7 @@
 
 ## Download and Execute
 - Download the repository and extract it.
-- Open the script files on the command line or duble click on them to execute
+- Open the script files on the command line or double click on them to execute
 
 ## Dependencies 
 - Python 3
