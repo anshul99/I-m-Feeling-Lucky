@@ -12,21 +12,18 @@ for game in all_games:
     teams = curr.findAll("span",{"class":"cscore_name cscore_name--long"})
     scores = curr.findAll("div",{"class":"cscore_score"})
     info = game.find("div",{"class":"cscore_date-time"})
+    overview = game.find("div",{"class":"cscore_info-overview"}).text
     date = info.find("span",{"class":"cscore_date"})
     time = info.find("span",{"class":"cscore_time"})
-    if date != None and time != None and date.text == time.text:
+    if date != None and time != None:
         match_state = time.text + " " + game.find("span",{"class":"cscore_notes_game"}).text
     else:
-        if date == None:
-            match_state = time.text + " " + game.find("span",{"class":"cscore_notes_game"}).text
-        elif time == None:
-            match_state = date.text + " " + game.find("span",{"class":"cscore_notes_game"}).text
-        else:
-            match_state = date.text + " " + time.text + " " + game.find("span",{"class":"cscore_notes_game"}).text
+        match_state = game.find("span",{"class":"cscore_notes_game"}).text
     team1 = teams[0].text
     score1 = scores[0].text
     team2 = teams[1].text
     score2 = scores[1].text
+    print(overview)
     print(team1,score1)
     print(team2,score2)
     print(match_state)
